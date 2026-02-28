@@ -1,1 +1,11 @@
-{ "rewrites": [{ "source": "/(.*)", "destination": "/" }] }
+{
+  "version": 2,
+  "outputDirectory": "Snickee",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "VoltaTech.html"
+    }
+  ]
+}
+
