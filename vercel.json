@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "outputDirectory": "Snickee",
   "routes": [
     {
       "src": "/(.*)",
@@ -8,4 +7,5 @@
     }
   ]
 }
+
 
