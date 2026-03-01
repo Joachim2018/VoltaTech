@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProFlow Plumbing – Fast & Reliable Services</title>
+  <meta name="description" content="Professional plumbing services in your area. Emergency repairs, installations, leak detection and more. Available 24/7."/>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1e40af;
+      --primary-dark: #1e3a8a;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --dark: #0f172a;
+      --success: #10b981;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #1e293b;
+      background: var(--light);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.1;
+    }
+
+    .container {
+      width: min(92%, 1180px);
+      margin: 0 auto;
+    }
+
+    /* ─── Header / Nav ─── */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      transition: background 0.4s;
+    }
+
+    header.scrolled {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 0;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.4rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.6rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.25s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      box-shadow: 0 4px 14px rgba(37,213,102,0.35);
+    }
+
+    .btn-whatsapp:hover {
+      background: #20b858;
+      transform: translateY(-2px);
+    }
+
+    /* ─── Hero ─── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1581092160607-36e2e7fdd65e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+      opacity: 0.18;
+      mix-blend-mode: overlay;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(3.2rem, 7vw, 5.2rem);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-content p {
+      font-size: 1.28rem;
+      margin-bottom: 2.2rem;
+      opacity: 0.95;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+    }
+
+    /* ─── Services ─── */
+    #services {
+      padding: 9rem 0 7rem;
+      background: white;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .section-title p {
+      color: var(--gray);
+      font-size: 1.15rem;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+      transition: all 0.35s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .service-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .service-content {
+      padding: 1.8rem 1.6rem;
+    }
+
+    .service-content h3 {
+      font-size: 1.45rem;
+      margin-bottom: 0.9rem;
+    }
+
+    /* ─── CTA Bar ─── */
+    .cta-bar {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 4.5rem 1rem;
+    }
+
+    .cta-bar h2 {
+      font-size: 2.6rem;
+      margin-bottom: 1.3rem;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--dark);
+      color: #cbd5e1;
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #334155;
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-buttons { flex-direction: column; }
+      .hero-content { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container">
+    <nav>
+      <div class="logo">Pro<span>Flow</span> Plumbing</div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="tel:+256701234567">+256 701 234 567</a>
+      </div>
+      <a href="https://wa.me/256701234567?text=Hello%20ProFlow%20Plumbing%2C%20I%20need%20help%20with..." 
+         class="btn btn-whatsapp" target="_blank">
+         WhatsApp Now
+      </a>
+    </nav>
+  </div>
+</header>
+
+<section id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Fast. Reliable. Professional Plumbing</h1>
+      <p>24/7 emergency service • Leak detection • Pipe installation & repair • Water heater service • Drainage solutions</p>
+      
+      <div class="hero-buttons">
+        <a href="https://wa.me/256701234567?text=Hello%20ProFlow%20Plumbing%2C%20I%20need%20help%20with..." 
+           class="btn btn-whatsapp btn-lg" target="_blank" style="padding:1rem 2.2rem; font-size:1.15rem;">
+           WhatsApp Us Now
+        </a>
+        <a href="tel:+256701234567" class="btn btn-primary" style="padding:1rem 2.2rem; font-size:1.15rem;">
+           Call: +256 701 234 567
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>We handle everything from small leaks to complete bathroom & kitchen renovations</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1581092160560-1c1e428e9d65?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="service-content">
+          <h3>Emergency Repairs</h3>
+          <p>Burst pipes, blocked drains, overflowing toilets — we come fast, usually within 60–90 minutes.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="service-content">
+          <h3>Bathroom & Kitchen Plumbing</h3>
+          <p>New installations, renovations, mixer taps, showers, sinks, water heaters and more.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="service-content">
+          <h3>Leak Detection & Repair</h3>
+          <p>Hidden leaks behind walls & under floors. Save water and prevent major damage.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="service-content">
+          <h3>Drain Cleaning & Unblocking</h3>
+          <p>High-pressure jetting and drain snakes for stubborn blockages.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1581092162380-27e3f7b8d4e5?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="service-content">
+          <h3>Water Heater Service</h3>
+          <p>Installation, repair & maintenance of electric & solar water heaters.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1581093458793-5e0d3c9d9c3c?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="service-content">
+          <h3>Pipe Relining (No Dig)</h3>
+          <p>Trenchless pipe repair — less mess, faster completion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-bar" id="contact">
+  <div class="container">
+    <h2>Need a plumber right now?</h2>
+    <p style="font-size:1.3rem; margin:1.5rem 0 2.5rem; opacity:0.95;">
+      Message us on WhatsApp or call — we're ready to help 24/7
+    </p>
+    
+    <div style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap;">
+      <a href="https://wa.me/256701234567?text=Hello%20ProFlow%20Plumbing%2C%20I%20need%20help%20with..." 
+         target="_blank" class="btn btn-whatsapp" style="font-size:1.3rem; padding:1.2rem 2.5rem;">
+         Open WhatsApp
+      </a>
+      <a href="tel:+256701234567" class="btn btn-primary" style="font-size:1.3rem; padding:1.2rem 2.5rem;">
+         Call Now: +256 701 234 567
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color:white; margin-bottom:1rem;">Pro<span>Flow</span></div>
+        <p style="color:#94a3b8;">Your trusted plumbing partner in Kampala and surrounding areas.</p>
+      </div>
+      
+      <div>
+        <h4 style="color:white; margin-bottom:1.2rem;">Quick Links</h4>
+        <ul style="list-style:none; display:grid; gap:0.8rem;">
+          <li><a href="#services" style="color:#cbd5e1; text-decoration:none;">Services</a></li>
+          <li><a href="#contact" style="color:#cbd5e1; text-decoration:none;">Contact</a></li>
+          <li><a href="tel:+256701234567" style="color:#cbd5e1; text-decoration:none;">Call Us</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 style="color:white; margin-bottom:1.2rem;">Contact</h4>
+        <p>Kampala, Uganda</p>
+        <p><strong>Phone:</strong> <a href="tel:+256701234567" style="color:#60a5fa;">+256 701 234 567</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/256701234567" style="color:#60a5fa;">Click to chat</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025–2026 ProFlow Plumbing. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Simple scroll effect for header
+  window.addEventListener('scroll', () => {
+    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href'))?.scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
